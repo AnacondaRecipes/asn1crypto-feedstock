@@ -10,29 +10,33 @@ source:
 
 build:
   number: 0
-  noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
     - python
     - pip
+    - setuptools >=38.6.0
+    - wheel >=0.31.0
   run:
     - python
 
 test:
   imports:
     - asn1crypto
-  commands:
-    - pip check
   requires:
     - pip
+  commands:
+    - pip check
 
 about:
   home: https://github.com/wbond/asn1crypto
   license: MIT
+  license_family: MIT
   license_file: LICENSE
   summary: Python ASN.1 library with a focus on performance and a pythonic API
+  dev_url: https://github.com/wbond/asn1crypto
+  doc_url: https://github.com/wbond/asn1crypto/blob/master/readme.md
 
 extra:
   recipe-maintainers:
